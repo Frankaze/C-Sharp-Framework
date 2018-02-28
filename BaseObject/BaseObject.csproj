@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonObject\BusniessLogicEnumeration.cs" />
+    <Compile Include="CommonObject\BusniessLogicException.cs" />
+    <Compile Include="CommonObject\CommonEnumeration.cs" />
+    <Compile Include="CommonObject\CommonException.cs" />
     <Compile Include="CommonObject\TransactionProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
