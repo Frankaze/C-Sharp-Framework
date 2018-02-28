@@ -4,6 +4,24 @@ namespace UtilityObject.ParseEnum
 {
     public static class ParseEnum
     {
+        #region Constant
+
+        #endregion Constant
+
+        #region Variable
+
+        #endregion Variable
+
+        #region Property
+
+        #endregion Property
+
+        #region Constructor
+
+        #endregion Constructor
+
+        #region Function
+
         /// <summary>
         /// 將字串轉換成Enum
         /// </summary>
@@ -32,5 +50,11 @@ namespace UtilityObject.ParseEnum
                 return (TEnum)Enum.Parse(typeof(TEnum), str, true);
             }
         }
+
+        #endregion Function
+
+        #region Class
+
+        #endregion Class
     }
 }

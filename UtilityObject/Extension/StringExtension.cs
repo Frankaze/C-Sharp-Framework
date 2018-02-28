@@ -4,6 +4,24 @@ namespace UtilityObject.Extension
 {
     public static class StringExtension
     {
+        #region Constant
+
+        #endregion Constant
+
+        #region Variable
+
+        #endregion Variable
+
+        #region Property
+
+        #endregion Property
+
+        #region Constructor
+
+        #endregion Constructor
+
+        #region Function
+
         /// <summary>
         /// 首字調整為大寫，其餘保持原貌
         /// </summary>
@@ -43,5 +61,11 @@ namespace UtilityObject.Extension
         {
             return strInput == null ? string.Empty : strInput.ToString();
         }
+
+        #endregion Function
+
+        #region Class
+
+        #endregion Class
     }
 }
