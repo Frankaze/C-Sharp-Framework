@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{DCD1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityObject", "UtilityObject\UtilityObject.csproj", "{234F0D73-2487-4C5C-8B08-223138584631}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseObject", "BaseObject\BaseObject.csproj", "{8D899AD2-2AFE-4B24-9D26-FAFAA8841D7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +21,17 @@ Global
 		{234F0D73-2487-4C5C-8B08-223138584631}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{234F0D73-2487-4C5C-8B08-223138584631}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{234F0D73-2487-4C5C-8B08-223138584631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D899AD2-2AFE-4B24-9D26-FAFAA8841D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D899AD2-2AFE-4B24-9D26-FAFAA8841D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D899AD2-2AFE-4B24-9D26-FAFAA8841D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D899AD2-2AFE-4B24-9D26-FAFAA8841D7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{234F0D73-2487-4C5C-8B08-223138584631} = {DCD165F0-1091-4DBF-B86A-82B80147C11E}
+		{8D899AD2-2AFE-4B24-9D26-FAFAA8841D7C} = {DCD165F0-1091-4DBF-B86A-82B80147C11E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB0DFE10-DF72-4481-BB8A-E22A062D892A}
