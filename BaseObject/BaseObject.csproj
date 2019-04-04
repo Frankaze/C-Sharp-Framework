@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationService\ApplicationServiceBase.cs" />
+    <Compile Include="BusinessObject\BusinessObjectBase.cs" />
     <Compile Include="CommonObject\BusniessLogicEnumeration.cs" />
     <Compile Include="CommonObject\BusniessLogicException.cs" />
     <Compile Include="CommonObject\CommonEnumeration.cs" />

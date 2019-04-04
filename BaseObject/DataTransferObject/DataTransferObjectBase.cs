@@ -54,6 +54,10 @@ namespace BaseObject.DataTransferObject
 
         #region Function
 
+        /// <summary>
+        /// 將屬性加入累加清單
+        /// </summary>
+        /// <param name="property">累加的屬性</param>
         public void AddAccumulateProperty(PropertyInfo property)
         {
             foreach (PropertyInfo _property in this.m_propertyAccumulateList)
@@ -66,6 +70,10 @@ namespace BaseObject.DataTransferObject
             m_propertyAccumulateList.Add(property);
         }
 
+        /// <summary>
+        /// 將屬性加入更新清單
+        /// </summary>
+        /// <param name="property">更新的屬性</param>
         public void AddUpdateProperty(PropertyInfo property)
         {
             foreach (PropertyInfo _property in this.m_propertyUpdateList)
@@ -79,45 +87,69 @@ namespace BaseObject.DataTransferObject
             m_propertyUpdateList.Add(property);
         }
 
+        /// <summary>
+        /// 開始加入累加清單
+        /// </summary>
         public void BeginAccumulateValue()
         {
             this.m_bolAccumulateValueStatus = true;
         }
 
+        /// <summary>
+        /// 開始加入更新清單
+        /// </summary>
         public void BeginUpdateValue()
         {
             this.m_bolUpdateValueStatus = true;
         }
 
+        /// <summary>
+        /// 結束加入累加清單
+        /// </summary>
         public void EndAccumulateValue()
         {
             this.m_bolAccumulateValueStatus = false;
         }
 
+        /// <summary>
+        /// 結束加入更新清單
+        /// </summary>
         public void EndUpdateValue()
         {
             this.m_bolUpdateValueStatus = false;
         }
 
+        /// <summary>
+        /// 取得累加清單的屬性列表
+        /// </summary>
+        /// <returns>累加屬性列表</returns>
         public List<PropertyInfo> GetAccumulatePropertyList()
         {
             return this.m_propertyAccumulateList;
         }
 
+        /// <summary>
+        /// 取得列狀態
+        /// </summary>
+        /// <returns>列狀態</returns>
         public RowStatusEnum GetRowStatus()
         {
             return this.m_enumRowStatus;
         }
 
+        /// <summary>
+        /// 取得更新清單的屬性列表
+        /// </summary>
+        /// <returns>更新屬性列表</returns>
         public List<PropertyInfo> GetUpdatePropertyList()
         {
             return this.m_propertyUpdateList;
         }
 
         /// <summary>
-        /// 從DataRow取得Data Transfer Object內屬性的對應值
+        /// 從DataRow取得DTO屬性的對應值
         /// </summary>
-        /// <param name="dr"></param>
+        /// <param name="dr">要對的DataRow</param>
         public void GetValueFromDataRow(DataRow dr)
         {
             PropertyInfo[] _propertyArray = this.GetType().GetProperties();
@@ -159,34 +191,37 @@ namespace BaseObject.DataTransferObject
             PropertyInfo[] _propertyArray = this.GetType().GetProperties();
             foreach (PropertyInfo _property in _propertyArray)
             {
-                switch (_property.PropertyType.Name)
+                if (_property.CanWrite)
                 {
-                    case "Int32":
-                        _property.SetValue(this, 0, null);
-                        break;
+                    switch (_property.PropertyType.Name)
+                    {
+                        case "Int32":
+                            _property.SetValue(this, 0, null);
+                            break;
 
-                    case "Double":
-                        _property.SetValue(this, (Double)0, null);
-                        break;
+                        case "Double":
+                            _property.SetValue(this, (Double)0, null);
+                            break;
 
-                    case "Decimal":
-                        _property.SetValue(this, (Decimal)0, null);
-                        break;
+                        case "Decimal":
+                            _property.SetValue(this, (Decimal)0, null);
+                            break;
 
-                    case "String":
-                        _property.SetValue(this, "", null);
-                        break;
+                        case "String":
+                            _property.SetValue(this, "", null);
+                            break;
 
-                    case "DateTime":
-                        _property.SetValue(this, new DateTime(1900, 1, 1), null);
-                        break;
+                        case "DateTime":
+                            _property.SetValue(this, new DateTime(1900, 1, 1), null);
+                            break;
 
-                    case "Boolean":
-                        _property.SetValue(this, false, null);
-                        break;
+                        case "Boolean":
+                            _property.SetValue(this, false, null);
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
             }
 
@@ -197,6 +232,10 @@ namespace BaseObject.DataTransferObject
             this.m_propertyAccumulateList.Clear();
         }
 
+        /// <summary>
+        /// 設定列狀態
+        /// </summary>
+        /// <param name="enumRowStatus">列狀態</param>
         public void SetRowStatus(RowStatusEnum enumRowStatus)
         {
             this.m_enumRowStatus = enumRowStatus;

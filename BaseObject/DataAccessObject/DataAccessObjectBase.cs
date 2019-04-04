@@ -71,10 +71,10 @@ namespace BaseObject.DataAccessObject
         }
 
         /// <summary>
-        /// 產生In 的SQL筆法
+        /// 產生In 的SQL語法
         /// </summary>
         /// <param name="strList">字串列表</param>
-        /// <returns>In 的SQL筆法</returns>
+        /// <returns>In 的SQL語法</returns>
         protected string CreateInListSQL(List<string> strList)
         {
             string _strResult = String.Empty;
@@ -100,10 +100,10 @@ namespace BaseObject.DataAccessObject
         }
 
         /// <summary>
-        /// 產生In 的SQL筆法
+        /// 產生In的SQL 語法
         /// </summary>
         /// <param name="strList">字串列表，必須均數字</param>
-        /// <returns> In 的SQL筆法</returns>
+        /// <returns>In的SQL語法</returns>
         protected string CreateInListSQLToInt(List<string> strList)
         {
             string _strResult = String.Empty;
@@ -129,10 +129,10 @@ namespace BaseObject.DataAccessObject
         }
 
         /// <summary>
-        /// 產生In 的SQL筆法
+        /// 產生In的SQL語法
         /// </summary>
         /// <param name="intList">字串列表，必須均數字</param>
-        /// <returns> In 的SQL筆法</returns>
+        /// <returns>In的SQL語法</returns>
         protected string CreateInListSQLToInt(List<int> intList)
         {
             string _strResult = String.Empty;
@@ -157,6 +157,11 @@ namespace BaseObject.DataAccessObject
             return _strResult;
         }
 
+        /// <summary>
+        /// 產生DTO所有欄位的SQL字串，用於INSERT的語法
+        /// </summary>
+        /// <param name="dtoBase">要使用INSERT語法的DTO物件</param>
+        /// <returns>INSERT欄位的SQL字串</returns>
         protected string CreateInsertPropertySQL(DataTransferObject.DataTransferObjectBase dtoBase)
         {
             string _strSQL = "";
@@ -189,6 +194,12 @@ namespace BaseObject.DataAccessObject
             return _strSQL;
         }
 
+        /// <summary>
+        /// 產生DTO所有欄位的SQL字串，用於OUTPUT INSERT的語法
+        /// </summary>
+        /// <param name="dtoBase">要使用INSERT語法的DTO物件</param>
+        /// <param name="strOutputField">要OUTPUT的欄位</param>
+        /// <returns>INSERT欄位的SQL字串</returns>
         protected string CreateInsertPropertySQL(DataTransferObject.DataTransferObjectBase dtoBase, string strOutputField)
         {
             string _strSQL = "";
@@ -222,9 +233,9 @@ namespace BaseObject.DataAccessObject
         }
 
         /// <summary>
-        /// 產生DTO所有欄位的SQL字串，用於SELECT的筆法
+        /// 產生DTO所有欄位的SQL字串，用於SELECT的語法
         /// </summary>
-        /// <param name="dtoBase">要使用SELECT筆法的DTO</param>
+        /// <param name="dtoBase">要使用SELECT語法的DTO</param>
         /// <returns>SELECT欄位的SQL字串</returns>
         protected string CreateSelectPropertySQL(DataTransferObject.DataTransferObjectBase dtoBase)
         {
@@ -232,10 +243,10 @@ namespace BaseObject.DataAccessObject
         }
 
         /// <summary>
-        /// 產生DTO所有欄位的SQL字串，用於SELECT的筆法
+        /// 產生DTO所有欄位的SQL字串，用於SELECT的語法
         /// </summary>
-        /// <param name="dtoBase">要使用SELECT筆法的DTO</param>
-        /// <param name="strTableSymbol">欄位的代號</param>
+        /// <param name="dtoBase">要使用SELECT語法的DTO</param>
+        /// <param name="strTableSymbol">別名</param>
         /// <returns>SELECT欄位的SQL字串</returns>
         protected string CreateSelectPropertySQL(DataTransferObject.DataTransferObjectBase dtoBase, string strTableSymbol)
         {
@@ -259,6 +270,11 @@ namespace BaseObject.DataAccessObject
             return _strSQL;
         }
 
+        /// <summary>
+        /// 產生DTO更新欄位的SQL字串，用於UPDATE的語法
+        /// </summary>
+        /// <param name="dtoBase">要使用UPDATE語法的DTO物件</param>
+        /// <returns>UPDATE欄位的SQL字串</returns>
         protected string CreateUpdatePropertySQL(DataTransferObject.DataTransferObjectBase dtoBase)
         {
             string _strSQL = "";
@@ -303,6 +319,11 @@ namespace BaseObject.DataAccessObject
             return _strSQL;
         }
 
+        /// <summary>
+        /// 在SqlCommand加入參數
+        /// </summary>
+        /// <param name="dtoBase">DTO物件</param>
+        /// <param name="sqlCmd">要加入參數的SqlCommand</param>
         protected void FillSqlCommmandParameter(DataTransferObject.DataTransferObjectBase dtoBase, ref SqlCommand sqlCmd)
         {
             foreach (PropertyInfo _property in dtoBase.GetUpdatePropertyList())
@@ -322,6 +343,11 @@ namespace BaseObject.DataAccessObject
             }
         }
 
+        /// <summary>
+        /// 在SqlCommand加入UPDATE用的參數
+        /// </summary>
+        /// <param name="dtoBase">DTO物件</param>
+        /// <param name="sqlCmd">要加入參數的SqlCommand</param>
         protected void FillSqlCommmandParameterForUpdate(DataTransferObject.DataTransferObjectBase dtoBase, ref SqlCommand sqlCmd)
         {
             foreach (PropertyInfo _property in dtoBase.GetUpdatePropertyList())
