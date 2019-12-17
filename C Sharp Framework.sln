@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormObject", "WinFormObj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleObject", "ConsoleObject\ConsoleObject.csproj", "{694BC295-3499-4E00-ADC0-7EE196C7B1E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryObject", "RepositoryObject\RepositoryObject.csproj", "{A11280E8-3ACC-48B3-999A-911D303768BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{694BC295-3499-4E00-ADC0-7EE196C7B1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{694BC295-3499-4E00-ADC0-7EE196C7B1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{694BC295-3499-4E00-ADC0-7EE196C7B1E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11280E8-3ACC-48B3-999A-911D303768BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11280E8-3ACC-48B3-999A-911D303768BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11280E8-3ACC-48B3-999A-911D303768BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11280E8-3ACC-48B3-999A-911D303768BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{8D899AD2-2AFE-4B24-9D26-FAFAA8841D7C} = {DCD165F0-1091-4DBF-B86A-82B80147C11E}
 		{DE92251B-1B1A-4919-9AE0-F3287F1255ED} = {7F4A92DD-7738-4D35-9D35-01A6D94B004D}
 		{694BC295-3499-4E00-ADC0-7EE196C7B1E0} = {7F4A92DD-7738-4D35-9D35-01A6D94B004D}
+		{A11280E8-3ACC-48B3-999A-911D303768BA} = {DCD165F0-1091-4DBF-B86A-82B80147C11E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB0DFE10-DF72-4481-BB8A-E22A062D892A}
