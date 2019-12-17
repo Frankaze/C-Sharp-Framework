@@ -24,6 +24,7 @@ namespace RepositoryObject.RepositoryModel
             get;
             set;
         }
+
         protected IUnitOfWork IUnitOfWork { get; set; }
 
         private DbSet<tbEntity> DbSet { get; set; }
@@ -75,32 +76,32 @@ namespace RepositoryObject.RepositoryModel
 
         public tbEntity Get(Expression<Func<tbEntity, bool>> predicate)
         {
-            return this.DbSet.FirstOrDefault(predicate);
+            return this.DbSet.AsNoTracking().FirstOrDefault(predicate);
         }
 
         public IQueryable<tbEntity> GetAll()
         {
-            return DbSet;
+            return this.DbSet.AsQueryable().AsNoTracking();
         }
 
         public IQueryable<tbEntity> GetAll(Expression<Func<tbEntity, bool>> predicate)
         {
-            return this.DbSet.Where(predicate);
-        }
-
-        public IQueryable<tbEntity> GetAllWithAsNoTracking()
-        {
-            return this.DbSet.AsQueryable().AsNoTracking();
-        }
-
-        public IQueryable<tbEntity> GetAllWithAsNoTracking(Expression<Func<tbEntity, bool>> predicate)
-        {
             return this.DbSet.Where(predicate).AsNoTracking();
         }
 
-        public tbEntity GetWithAsNoTracking(Expression<Func<tbEntity, bool>> predicate)
+        public IQueryable<tbEntity> GetAllWithTracking()
         {
-            return this.DbSet.AsNoTracking().FirstOrDefault(predicate);
+            return DbSet;
+        }
+
+        public IQueryable<tbEntity> GetAllWithTracking(Expression<Func<tbEntity, bool>> predicate)
+        {
+            return this.DbSet.Where(predicate);
+        }
+
+        public tbEntity GetWithTracking(Expression<Func<tbEntity, bool>> predicate)
+        {
+            return this.DbSet.FirstOrDefault(predicate);
         }
 
         public void Update(tbEntity tb)

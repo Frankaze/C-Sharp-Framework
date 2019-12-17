@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="ApplicationService\ApplicationServiceBase.cs" />
     <Compile Include="ApplicationService\ReportServiceBase.cs" />
+    <Compile Include="DomainModel\DomainModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryModel\Interface\IRepository.cs" />
     <Compile Include="RepositoryModel\RepositoryBase.cs" />

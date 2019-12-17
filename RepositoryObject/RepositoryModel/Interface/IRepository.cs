@@ -17,15 +17,15 @@ namespace RepositoryObject.RepositoryModel.Interface
 
         tbEntity Get(Expression<Func<tbEntity, bool>> predicate);
 
-        tbEntity GetWithAsNoTracking(Expression<Func<tbEntity, bool>> predicate);
-
         IQueryable<tbEntity> GetAll();
 
         IQueryable<tbEntity> GetAll(Expression<Func<tbEntity, bool>> predicate);
 
-        IQueryable<tbEntity> GetAllWithAsNoTracking();
+        IQueryable<tbEntity> GetAllWithTracking();
 
-        IQueryable<tbEntity> GetAllWithAsNoTracking(Expression<Func<tbEntity, bool>> predicate);
+        IQueryable<tbEntity> GetAllWithTracking(Expression<Func<tbEntity, bool>> predicate);
+
+        tbEntity GetWithTracking(Expression<Func<tbEntity, bool>> predicate);
 
         void Update(tbEntity tb);
     }
