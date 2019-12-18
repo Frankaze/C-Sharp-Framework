@@ -56,15 +56,15 @@ namespace RepositoryObject.RepositoryModel
             }
         }
 
-        public void Delete(tbEntity instance)
+        public void Delete(tbEntity tb)
         {
-            if (instance == null)
+            if (tb == null)
             {
                 throw new ArgumentNullException("tbEntity");
             }
             else
             {
-                this.DbContext.Entry(instance).State = EntityState.Deleted;
+                this.DbContext.Entry(tb).State = EntityState.Deleted;
             }
         }
 

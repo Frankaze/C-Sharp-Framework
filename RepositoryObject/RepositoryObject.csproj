@@ -75,11 +75,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryModel\Interface\IRepository.cs" />
     <Compile Include="RepositoryModel\RepositoryBase.cs" />
-    <Compile Include="UnitOfWorkＭodel\DbContextFactory.cs" />
-    <Compile Include="UnitOfWorkＭodel\Interface\IDbContextFactory.cs" />
-    <Compile Include="UnitOfWorkＭodel\Interface\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWorkＭodel\Interface\IUnitOfWorkFactory.cs" />
-    <Compile Include="UnitOfWorkＭodel\UnitOfWork.cs" />
+    <Compile Include="UnitOfWorkModel\DbContextFactory.cs" />
+    <Compile Include="UnitOfWorkModel\Interface\IDbContextFactory.cs" />
+    <Compile Include="UnitOfWorkModel\Interface\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWorkModel\Interface\IUnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWorkModel\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
