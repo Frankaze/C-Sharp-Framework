@@ -8,25 +8,25 @@ using System.Threading.Tasks;
 
 namespace RepositoryObject.RepositoryModel.Interface
 {
-    public interface IRepository<tbEntity> : IDisposable
-           where tbEntity : class
+    public interface IRepository<TEntity> : IDisposable
+           where TEntity : class
     {
-        void Create(tbEntity tb);
+        void Create(TEntity tb);
 
-        void Delete(tbEntity tb);
+        void Delete(TEntity tb);
 
-        tbEntity Get(Expression<Func<tbEntity, bool>> predicate);
+        TEntity Get(Expression<Func<TEntity, bool>> predicate);
 
-        IQueryable<tbEntity> GetAll();
+        IQueryable<TEntity> GetAll();
 
-        IQueryable<tbEntity> GetAll(Expression<Func<tbEntity, bool>> predicate);
+        IQueryable<TEntity> GetAll(Expression<Func<TEntity, bool>> predicate);
 
-        IQueryable<tbEntity> GetAllWithTracking();
+        IQueryable<TEntity> GetAllWithTracking();
 
-        IQueryable<tbEntity> GetAllWithTracking(Expression<Func<tbEntity, bool>> predicate);
+        IQueryable<TEntity> GetAllWithTracking(Expression<Func<TEntity, bool>> predicate);
 
-        tbEntity GetWithTracking(Expression<Func<tbEntity, bool>> predicate);
+        TEntity GetWithTracking(Expression<Func<TEntity, bool>> predicate);
 
-        void Update(tbEntity tb);
+        void Update(TEntity tb);
     }
 }

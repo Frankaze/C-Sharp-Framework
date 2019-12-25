@@ -6,8 +6,8 @@ using System.Linq;
 using System.Linq.Expressions;
 namespace RepositoryObject.RepositoryModel
 {
-    public class RepositoryBase<tbEntity> : IRepository<tbEntity>
-        where tbEntity : class
+    public class RepositoryBase<TEntity> : IRepository<TEntity>
+        where TEntity : class
     {
         #region Constant
 
@@ -27,7 +27,7 @@ namespace RepositoryObject.RepositoryModel
 
         protected IUnitOfWork IUnitOfWork { get; set; }
 
-        private DbSet<tbEntity> DbSet { get; set; }
+        private DbSet<TEntity> DbSet { get; set; }
 
         #endregion Property
 
@@ -37,14 +37,14 @@ namespace RepositoryObject.RepositoryModel
         {
             this.IUnitOfWork = iuow;
             this.DbContext = iuow.DbContext;
-            this.DbSet = this.DbContext.Set<tbEntity>();
+            this.DbSet = this.DbContext.Set<TEntity>();
         }
 
         #endregion Constructor
 
         #region Function
 
-        public void Create(tbEntity tb)
+        public void Create(TEntity tb)
         {
             if (tb == null)
             {
@@ -56,7 +56,7 @@ namespace RepositoryObject.RepositoryModel
             }
         }
 
-        public void Delete(tbEntity tb)
+        public void Delete(TEntity tb)
         {
             if (tb == null)
             {
@@ -74,37 +74,37 @@ namespace RepositoryObject.RepositoryModel
             GC.SuppressFinalize(this);
         }
 
-        public tbEntity Get(Expression<Func<tbEntity, bool>> predicate)
+        public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
             return this.DbSet.AsNoTracking().FirstOrDefault(predicate);
         }
 
-        public IQueryable<tbEntity> GetAll()
+        public IQueryable<TEntity> GetAll()
         {
             return this.DbSet.AsQueryable().AsNoTracking();
         }
 
-        public IQueryable<tbEntity> GetAll(Expression<Func<tbEntity, bool>> predicate)
+        public IQueryable<TEntity> GetAll(Expression<Func<TEntity, bool>> predicate)
         {
             return this.DbSet.Where(predicate).AsNoTracking();
         }
 
-        public IQueryable<tbEntity> GetAllWithTracking()
+        public IQueryable<TEntity> GetAllWithTracking()
         {
             return DbSet;
         }
 
-        public IQueryable<tbEntity> GetAllWithTracking(Expression<Func<tbEntity, bool>> predicate)
+        public IQueryable<TEntity> GetAllWithTracking(Expression<Func<TEntity, bool>> predicate)
         {
             return this.DbSet.Where(predicate);
         }
 
-        public tbEntity GetWithTracking(Expression<Func<tbEntity, bool>> predicate)
+        public TEntity GetWithTracking(Expression<Func<TEntity, bool>> predicate)
         {
             return this.DbSet.FirstOrDefault(predicate);
         }
 
-        public void Update(tbEntity tb)
+        public void Update(TEntity tb)
         {
             if (tb == null)
             {

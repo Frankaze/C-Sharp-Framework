@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveDirectory\ActiveDirectory.cs" />
+    <Compile Include="Calendar\Calendar.cs" />
     <Compile Include="Extension\StringExtension.cs" />
     <Compile Include="ParseEnum\ParseEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
