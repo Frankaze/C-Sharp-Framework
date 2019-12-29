@@ -24,6 +24,20 @@ namespace BaseObject.CommonObject
         }
 
         /// <summary>
+        /// 帳號重複建檔
+        /// </summary>
+        public class AccountIsDuplicatedException : AccountExceptionBase
+        {
+            public AccountIsDuplicatedException() : base()
+            {
+            }
+
+            private AccountIsDuplicatedException(Guid guidAccountGUId, string strAccount) : base(guidAccountGUId, strAccount)
+            {
+            }
+        }
+
+        /// <summary>
         /// 帳號未啟用
         /// </summary>
         public class AccountIsInactiveException : AccountExceptionBase
@@ -37,9 +51,18 @@ namespace BaseObject.CommonObject
         }
 
         /// <summary>
-        /// 帳號不存在或關閉
+        /// 帳號不存在(沒資料) 或 關閉(Close)
         /// </summary>
-        public class AccountIsNotExistException : Exception { }
+        public class AccountIsNotExistenceException : AccountExceptionBase
+        {
+            public AccountIsNotExistenceException() : base()
+            {
+            }
+
+            private AccountIsNotExistenceException(Guid guidAccountGUId, string strAccount) : base(guidAccountGUId, strAccount)
+            {
+            }
+        }
 
         /// <summary>
         /// AD驗證失敗
@@ -76,7 +99,7 @@ namespace BaseObject.CommonObject
         /// <summary>
         /// Email不存在
         /// </summary>
-        public class EmailAddressIsNotExistException : Exception { }
+        public class EmailAddressIsNotExistenceException : Exception { }
     }
 
     public class ExcelException
