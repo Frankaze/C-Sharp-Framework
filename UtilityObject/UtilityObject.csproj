@@ -46,6 +46,7 @@
     <Compile Include="Extension\StringExtension.cs" />
     <Compile Include="ParseEnum\ParseEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegularExpression\RegularExpression.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
