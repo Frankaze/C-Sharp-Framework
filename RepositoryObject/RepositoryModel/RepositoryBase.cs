@@ -4,10 +4,11 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+
 namespace RepositoryObject.RepositoryModel
 {
     public class RepositoryBase<TEntity> : IRepository<TEntity>
-        where TEntity : class
+            where TEntity : class
     {
         #region Constant
 
@@ -91,17 +92,31 @@ namespace RepositoryObject.RepositoryModel
 
         public IQueryable<TEntity> GetAllWithTracking()
         {
-            return DbSet;
+            foreach (var _varEntity in this.DbSet)
+            {
+                this.DbContext.Entry(_varEntity).Reload();
+            }
+            return this.DbSet;
         }
 
         public IQueryable<TEntity> GetAllWithTracking(Expression<Func<TEntity, bool>> predicate)
         {
-            return this.DbSet.Where(predicate);
+            var _varEntities = this.DbSet.Where(predicate);
+            foreach (var _varEntity in _varEntities)
+            {
+                this.DbContext.Entry(_varEntity).Reload();
+            }
+            return _varEntities;
         }
 
         public TEntity GetWithTracking(Expression<Func<TEntity, bool>> predicate)
         {
-            return this.DbSet.FirstOrDefault(predicate);
+            var _varEntity = this.DbSet.FirstOrDefault(predicate);
+            if (_varEntity != null)
+            {
+                this.DbContext.Entry(_varEntity).Reload();
+            }
+            return _varEntity;
         }
 
         public void Update(TEntity tb)
@@ -112,6 +127,7 @@ namespace RepositoryObject.RepositoryModel
             }
             else
             {
+                var _varEntry = this.DbContext.Entry(tb);
                 this.DbContext.Entry(tb).State = EntityState.Modified;
             }
         }
