@@ -78,7 +78,6 @@
     <Compile Include="UnitOfWorkModel\DbContextFactory.cs" />
     <Compile Include="UnitOfWorkModel\Interface\IDbContextFactory.cs" />
     <Compile Include="UnitOfWorkModel\Interface\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWorkModel\Interface\IUnitOfWorkFactory.cs" />
     <Compile Include="UnitOfWorkModel\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
