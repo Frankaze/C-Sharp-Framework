@@ -28,6 +28,18 @@
     }
 
     /// <summary>
+    /// Log層級
+    /// </summary>
+    public enum LogLevelEnum
+    {
+        Debug,
+        Info,
+        Warn,
+        Error,
+        Fatal
+    }
+
+    /// <summary>
     /// 單位代碼
     /// </summary>
     public enum OrganizationUnitCodeEnum
@@ -44,6 +56,7 @@
     public enum PermissionTypeEnum
     {
         Control,
+        Element,
         Form,
         Function,
         Page,
@@ -86,6 +99,7 @@
     public enum SyncStatusEnum
     {
         Synced, //已同步
-        WaitToSync //待同步
+        WaitToSync, //待同步
+        NotToSync //不同步
     }
 }
