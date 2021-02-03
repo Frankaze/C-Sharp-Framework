@@ -44,6 +44,7 @@
     <Compile Include="ActiveDirectory\ActiveDirectory.cs" />
     <Compile Include="Calendar\Calendar.cs" />
     <Compile Include="Encrpytion\Encrpytion.cs" />
+    <Compile Include="Extension\DateTimeExtension.cs" />
     <Compile Include="Extension\ListExtension.cs" />
     <Compile Include="Extension\StringExtension.cs" />
     <Compile Include="ParseEnum\ParseEnum.cs" />

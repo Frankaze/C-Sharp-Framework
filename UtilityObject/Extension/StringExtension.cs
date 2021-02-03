@@ -53,6 +53,26 @@ namespace UtilityObject.Extension
         }
 
         /// <summary>
+        /// 取得遇到第一個Char前的字串
+        /// </summary>
+        /// <param name="strInput">輸入字串</param>
+        /// <param name="charIndexOf">第一個Char</param>
+        /// <returns>第一個Char前的字串</returns>
+        public static string FirstIndexOfString(this string strInput, char charIndexOf)
+        {
+            int _intIndex = strInput.IndexOf(charIndexOf);
+
+            if (_intIndex == -1)
+            {
+                return strInput;
+            }
+            else
+            {
+                return strInput.Substring(0, _intIndex);
+            }
+        }
+
+        /// <summary>
         /// 物件轉字串
         /// </summary>
         /// <param name="strInput"></param>
