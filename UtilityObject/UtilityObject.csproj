@@ -48,6 +48,7 @@
     <Compile Include="Extension\EnumExtension.cs" />
     <Compile Include="Extension\Linq\ExpressionExtension.cs" />
     <Compile Include="Extension\ListExtension.cs" />
+    <Compile Include="Extension\ObjectExtension.cs" />
     <Compile Include="Extension\StringExtension.cs" />
     <Compile Include="ParseEnum\ParseEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
