@@ -30,7 +30,7 @@ namespace UtilityObject.Extension
         }
 
         /// <summary>
-        ///  取得當週最後一天 (星期日結束)
+        /// 取得當週最後一天 (星期日結束)
         /// </summary>
         /// <param name="date">時間</param>
         /// <returns>當週最後一天</returns>
@@ -41,6 +41,16 @@ namespace UtilityObject.Extension
             int _intDayDiff = 7 - (_intDayOfWeek == 0 ? 7 : _intDayOfWeek);
 
             return date.AddDays(_intDayDiff).Date;
+        }
+
+        /// <summary>
+        /// 將日期轉換成 Unix 的 TimeStamp
+        /// </summary>
+        /// <param name="date">要轉換的日期</param>
+        /// <returns>Unix 的 TimeStamp</returns>
+        public static string ToUnixTimeStamp(this DateTime date)
+        {
+            return date.ToUniversalTime().Subtract(new DateTime(1970, 1, 1)).TotalSeconds.ToString();
         }
     }
 }

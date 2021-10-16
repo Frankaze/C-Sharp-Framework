@@ -32,9 +32,36 @@ namespace UtilityObject.Encrpytion
         /// <returns>密文</returns>
         public static string EncryptByMD5(CaseEnum enumCase, string strPlaintext)
         {
-            MD5 _md5 = new MD5CryptoServiceProvider();
-
             byte[] _byteBufferArray = Encoding.Default.GetBytes(strPlaintext);
+            byte[] _byteMD5Array = new MD5CryptoServiceProvider().ComputeHash(_byteBufferArray);
+
+            StringBuilder _sb = new StringBuilder();
+            for (int i = 0; i < _byteMD5Array.Length; i++)
+            {
+                switch (enumCase)
+                {
+                    case CaseEnum.Lowercase:
+                        _sb.Append(_byteMD5Array[i].ToString("x2"));
+                        break;
+
+                    case CaseEnum.Uppercase:
+                        _sb.Append(_byteMD5Array[i].ToString("X2"));
+                        break;
+                }
+            }
+            return _sb.ToString();
+        }
+
+        /// <summary>
+        /// 使用MD5加密
+        /// </summary>
+        /// <param name="enumCase">大小寫</param>
+        /// <param name="strEncodingName">編碼名稱</param>
+        /// <param name="strPlaintext">明文</param>
+        /// <returns>密文</returns>
+        public static string EncryptByMD5(CaseEnum enumCase, string strEncodingName, string strPlaintext)
+        {
+            byte[] _byteBufferArray = Encoding.GetEncoding(strEncodingName).GetBytes(strPlaintext);
             byte[] _byteMD5Array = new MD5CryptoServiceProvider().ComputeHash(_byteBufferArray);
 
             StringBuilder _sb = new StringBuilder();

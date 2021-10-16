@@ -82,6 +82,26 @@ namespace UtilityObject.Extension
             return strInput == null ? string.Empty : strInput.ToString();
         }
 
+        /// <summary>
+        /// 將 TimeStamp 轉換回時間
+        /// </summary>
+        /// <param name="strInput">TimeStamp</param>
+        /// <returns>時間， Null 表示字串格式不正確</returns>
+        public static DateTime? UnixTimeStampToDate(this string strInput)
+        {
+            double _douTimeStamp;
+
+            if (double.TryParse(strInput, out _douTimeStamp) == true)
+            {
+                DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
+                return dtStart.AddSeconds(_douTimeStamp);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         #endregion Function
 
         #region Class
