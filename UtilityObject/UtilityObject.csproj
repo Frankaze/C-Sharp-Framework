@@ -45,6 +45,7 @@
     <Compile Include="Calendar\Calendar.cs" />
     <Compile Include="Encrpytion\Encrpytion.cs" />
     <Compile Include="Extension\DateTimeExtension.cs" />
+    <Compile Include="Extension\DecimalExtension.cs" />
     <Compile Include="Extension\EnumExtension.cs" />
     <Compile Include="Extension\Linq\ExpressionExtension.cs" />
     <Compile Include="Extension\ListExtension.cs" />

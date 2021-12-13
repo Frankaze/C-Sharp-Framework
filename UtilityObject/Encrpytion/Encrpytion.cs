@@ -113,6 +113,29 @@ namespace UtilityObject.Encrpytion
             return _sb.ToString();
         }
 
+        #region HMAC - SHA256
+
+        /// <summary>
+        /// 使用SHA256加密
+        /// </summary>
+        /// <param name="enumCase">大小寫</param>
+        /// <param name="strPlaintext">明文</param>
+        /// <returns>密文</returns>
+        public static string EncryptHMACSHA256(string strPlaintext, string strKey)
+        {
+            UTF8Encoding _encoding = new UTF8Encoding();
+
+            byte[] _byteKey = _encoding.GetBytes(strKey);
+
+            byte[] _byteBufferArray = Encoding.UTF8.GetBytes(strPlaintext);
+            HMACSHA256 _hmacSHA256 = new HMACSHA256(_byteKey);
+            byte[] _byteHashashMessage = _hmacSHA256.ComputeHash(_byteBufferArray);
+
+            return BitConverter.ToString(_byteHashashMessage).Replace("-", "").ToLower();
+        }
+
+        #endregion HMAC - SHA256
+
         #region ASE256
 
         /// <summary>
